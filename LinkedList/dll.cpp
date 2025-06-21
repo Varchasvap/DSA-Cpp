@@ -36,8 +36,22 @@ node*beforehead(node*head,int val){
      head->back=newhead;
 
     return newhead;
- }            
-    void printll(node* head) {
+ }   
+ node*beforetail(node*head,int val){
+     node*tail=head;
+     
+     while(tail->next!=NULL){
+         tail=tail->next;
+     }
+     node*prev=tail->back;
+     node*Beforetail=new node(val,tail,prev);
+     prev->next=Beforetail;
+     tail->back=Beforetail;
+     return head;
+     
+ }
+ 
+void printll(node* head) {
     node* l = head;
     while (l != NULL) {
         cout << l->data << " ";
@@ -51,7 +65,7 @@ int main() {
     
     node*head=createLinkedList(arr, n);
    
-    head=beforehead(head,69);
+    head=beforetail(head,69);
      printll(head);
     
     
