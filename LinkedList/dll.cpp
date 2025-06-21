@@ -1,3 +1,4 @@
+// Online C++ compiler to run C++ program online
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
         back=NULL;
     }
 };
+   
 node* createLinkedList(int arr[], int n) {
         if (n == 0) return NULL;
         node*head=new node(arr[0]);
@@ -27,10 +29,14 @@ node* createLinkedList(int arr[], int n) {
            prev->next=temp;
            prev=temp;
         }
-        
-    
         return head;
     }
+node*beforehead(node*head,int val){
+     node*newhead=new node(val,head,NULL);
+     head->back=newhead;
+
+    return newhead;
+ }            
     void printll(node* head) {
     node* l = head;
     while (l != NULL) {
@@ -44,7 +50,9 @@ int main() {
     int n=9;
     
     node*head=createLinkedList(arr, n);
-    printll(head);
+   
+    head=beforehead(head,69);
+     printll(head);
     
     
 
